@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Junior DevOps Engineer</h1>
+      </header>
+      <div align="center">
+        <form action="/submit" enctype="multipart/form-data" method="POST">
+            <fieldset>
+                <h1>
+                    Apply for this job                    
+                </h1>
+              <label>Full name</label>
+              <input type ="text" id = 'fullname' name="fullname" required>
+              <br><br>
+              <label>Email address</label>
+              <input type="text" id = "email" name="email" required>
+              <br><br>
+              <label>Message</label>
+              <input type="text" id = "message" name="message" required>
+              <br><br>
+              <label>Upload CV</label>
+              <input type="file" id="resume" name="resume" required>
+              <br><br>
+              <button type ="reset">Reset</button>
+              <button onclick="" type ="submit">Send application</button>
+            </fieldset>
+          </form>
+      </div>
+</body>
+</html>
