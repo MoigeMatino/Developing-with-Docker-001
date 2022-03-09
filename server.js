@@ -18,17 +18,16 @@ app.use(bodyParser.json())
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
 //Configuration for Multer
-const multerStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, "uploads");
-    },
-    filename: (req, file, cb) => {
-      const ext = file.mimetype.split("/")[1];
-      cb(null, `/admin-${file.fieldname}-${Date.now()}.${ext}`);
-    },
-  });
+var multerStorage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now());
+  }
+});
 
-// Multer Filter
+// To Filter pdf documents
 const multerFilter = (req, file, cb) => {
     if (file.mimetype.split("/")[1] === "pdf") {
       cb(null, true);
@@ -50,14 +49,15 @@ app.get('/', (req, res, next) => {
 
 
 app.post('/submit', upload.single('resume'), (req, res, next) => {
-    console.log(req.body)
+    console.log(req.file)
     const applicationData = new Application ({
         fullname:req.body.fullname,
         email:req.body.email,
         message: req.body.message,
-        resume: req.file
+        resume: req.file.filename
 
     })
+    // console.log(applicationData)
 
     applicationData.save()
         .then(data => {

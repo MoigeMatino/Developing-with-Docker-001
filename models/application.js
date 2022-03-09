@@ -18,8 +18,11 @@ const ApplicationSchema = new mongoose.Schema({
         maxlength: 300
     },
     resume:{
-        type:Buffer
+        type: {
+            type:String
+        }
     }
+    // { typeKey: '$type' },
 })
 
 module.exports = mongoose.model('Applications', ApplicationSchema)
