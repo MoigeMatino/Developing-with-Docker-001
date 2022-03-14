@@ -24,6 +24,7 @@ var multerStorage =   multer.diskStorage({
   },
   filename: function (req, file, callback) {
     callback(null, file.fieldname + '-' + Date.now());
+    // console.log(file)
   }
 });
 
