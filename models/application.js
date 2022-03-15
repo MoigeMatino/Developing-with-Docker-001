@@ -23,6 +23,7 @@ const ApplicationSchema = new mongoose.Schema({
         }
     }
     // { typeKey: '$type' },
-})
+});
 
-module.exports = mongoose.model('Applications', ApplicationSchema)
+
+module.exports = mongoose.model('Application', ApplicationSchema )

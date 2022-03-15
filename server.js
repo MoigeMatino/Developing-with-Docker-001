@@ -50,7 +50,7 @@ app.get('/', (req, res, next) => {
 
 
 app.post('/submit', upload.single('resume'), (req, res, next) => {
-    console.log(req.file)
+    // console.log(req.file)
     const applicationData = new Application ({
         fullname:req.body.fullname,
         email:req.body.email,
@@ -74,8 +74,9 @@ app.post('/submit', upload.single('resume'), (req, res, next) => {
 });
 
 const port = process.env.PORT || 3000
+
 app.listen(port, ()=> {
     console.log(`Magic happens on port ${port}`)
 })
 
-exports = module.exports = app;
+module.exports = app;
