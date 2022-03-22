@@ -73,7 +73,7 @@ app.post('/submit', upload.single('resume'), (req, res, next) => {
 
 });
 
-const port = process.env.PORT || 3000
+var port = 5500
 
 app.listen(port, ()=> {
     console.log(`Magic happens on port ${port}`)
