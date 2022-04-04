@@ -28,14 +28,7 @@ var multerStorage =   multer.diskStorage({
   }
 });
 
-// To Filter pdf documents
-const multerFilter = (req, file, cb) => {
-    if (file.mimetype.split("/")[1] === "pdf") {
-      cb(null, true);
-    } else {
-      cb(new Error("Not a PDF File!!"), false);
-    }
-  };
+
 
 //Calling the "multer" Function
 const upload = multer({
@@ -73,7 +66,7 @@ app.post('/submit', upload.single('resume'), (req, res, next) => {
 
 });
 
-var port = 5500
+var port = 6500
 
 app.listen(port, ()=> {
     console.log(`Magic happens on port ${port}`)

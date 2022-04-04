@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const url = 'mongodb://admin:password@mongo:5500/applicants?authSource=admin';
+const url = 'mongodb://admin:password@mongo/applicants?authSource=admin';
 
 mongoose.connect(url, { useNewUrlParser: true,useUnifiedTopology: true})
   .then(() => console.log("Mongodb connected"))
